@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>学习HTML</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<style>
+			.center1{
+				background-color: rosybrown;
+				padding-top: 0px;
+				padding-left: 100px;
+			   	margin-left: 0px;
+			   	margin-bottom:120px;
+			}
+			.center1_middle{
+				margin-top: -115px;
+			}
+			#divfrom{
+                float:left;
+                width:150px;
+            }
+            #divto{
+                float:left;
+                width:150px;
+            }
+            #divoperator{
+                float:left;
+                width:50px;
+                padding:60px 5px;
+            }
+            #divoperator input[type="button"]{
+                margin:10px 0;
+            }
+            #selDepartments{
+                display:block;
+                width:100%;
+            }
+            #selEmployees{
+                display:block;
+                width:100%;
+                height:200px;
+            }
+            #selSelectedEmployees{
+                display:block;
+                width:100%;
+                height:225px;
+            }
+            .buttom1{
+				background-color: rosybrown;
+				margin-top: 0px;
+				height:100px;
+				width: 900px;
+				margin-left: 200px;
+			}
+			.buttom1_text{
+				margin-left: 280px;
+				padding-top: 40px;
+			}
+			.buttom1_img{
+				margin-left: 450px;
+				margin-top: -50px;
+			}
+			.hr2{
+				width: 900px;
+				margin-left: 200px;
+				margin-top: -10px;
+				margin-bottom: -7px;
+			}
+			.center3{
+				padding-top: 20px;
+				width:900px;
+				height:600px;
+				background-color: rosybrown;
+				margin-left: 200px;}
+		</style>
+		<script type="application/javascript">
+            function employee(employeeid, employeename){
+                this.employeeid = employeeid;
+                this.employeename = employeename;
+            }
+            function department(departmentid, departmentname, employees){
+                this.departmentid = departmentid;
+                this.departmentname = departmentname;
+                this.employees = employees;
+            }
+            var data = new Array(
+                new department(1, "技术部", new Array(
+                    new employee(1001, "a00"), new employee(1002, "a01"), new employee(1003, "a02"), new employee(1004, "a03"))),
+                new department(2, "销售部", new Array(
+                    new employee(2001, "b00"), new employee(2002, "b01"), new employee(2003, "b02"), new employee(2004, "b03"))),
+                new department(3, "市场部", new Array(
+                    new employee(3001, "c00"), new employee(3002, "c01"), new employee(3003, "c02"), new employee(3004, "c03"))),
+                new department(4, "行政部", new Array(
+                    new employee(4001, "d00"), new employee(4002, "d01"), new employee(4003, "d02"), new employee(4004, "d03"))));
+            
+            var selDepartments;
+            var selEmployees;
+            var selSelectedEmployees;
+            
+            function body_load(){
+                selDepartments = document.getElementById("selDepartments");
+                selEmployees = document.getElementById("selEmployees");
+                selSelectedEmployees = document.getElementById("selSelectedEmployees");
+                
+                for(var i=0;i<data.length;i++){
+                    var dep = document.createElement("option");
+                    dep.value = data[i].departmentid;
+                    dep.text = data[i].departmentname;
+                    selDepartments.appendChild(dep);
+                }
+                
+                fillEmployees();
+            }
+            
+            function fillEmployees(){
+                clearList(selEmployees);
+                var departmentid = selDepartments.options[selDepartments.selectedIndex].value;//selDepartments.selectedIndex指的是 选择哪个option的下标
+                var employees;
+                for(var i=0;i<data.length;i++){
+                    if (departmentid == data[i].departmentid){
+                        employees = data[i].employees;
+                        break;
+                    }
+                }
+                for(i=0;i<employees.length;i++){
+                    var emp = document.createElement("option");
+                    emp.value = employees[i].employeeid;
+                    emp.text = employees[i].employeename;
+                    selEmployees.appendChild(emp);
+                }
+            }
+            
+            function clearList(list){
+                while(list.childElementCount > 0){
+                    list.removeChild(list.lastChild);
+                }
+            }
+            
+            function selectEmployees(){
+                for(var i=0;i<selEmployees.options.length;i++){
+                    if (selEmployees.options[i].selected){
+                        addEmployee(selEmployees.options[i]);
+                        selEmployees.options[i].selected = false;
+                    }
+                }
+            }
+            
+            function deSelectEmployees(){
+                var elementsToRemoved = new Array();
+                var options = selSelectedEmployees.options;
+                for(var i=0;i<options.length;i++){
+                    if (options[i].selected){
+                        elementsToRemoved.push(options[i]);
+                    }
+                }
+                for(i=0;i<elementsToRemoved.length;i++){
+                    selSelectedEmployees.removeChild(elementsToRemoved[i]);
+                }
+            }
+            
+            function addEmployee(optEmployee){
+                var options = selSelectedEmployees.options;
+                var i = 0;
+                var insertIndex = -1;
+                while(i < options.length){
+                    if (optEmployee.value == options[i].value){
+                        return;
+                    } else if (optEmployee.value < options[i].value) {
+                        insertIndex = i;
+                        break;
+                    }
+                    i++;
+                }
+                var opt = document.createElement("option");
+                opt.value = optEmployee.value;
+                opt.text = optEmployee.text;
+                
+                if (insertIndex == -1){
+                    selSelectedEmployees.appendChild(opt);
+                } else {
+                    selSelectedEmployees.insertBefore(opt, options[insertIndex]);
+                }
+            }            
+        </script>
+		
+	</head>
+	<body onload="body_load()">
+		<div class="top">
+			<div class="top_left"><img src="img/header.png" width="150px" height="60px" alt="宝宝走丢了~"></div>
+			<div class="top_middle"><font size="5.99px" face=charcoal>欢迎访问Cool-Meeting会议管理系统</font></div>
+			<div class="top_right">
+				欢迎您，<strong>admin</strong>
+				<a herf="#">[修改密码]</a>
+			</div>
+		</div>
+		<div class="center3">
+			<div class="center_left">
+				<div>
+					<div><strong>个人中心</strong></div>
+					<ul>
+						<li><a href="#">最新通知</a></li>
+						<li><a href="#">我的预定</a></li>
+						<li><a href="#">我的会议</a></li>
+					</ul>
+				</div>
+				<div>
+					<div><strong>人员管理</strong></div>
+					<ul>
+						<li><a href="#">部门管理</a></li>
+						<li><a href="#">员工注册</a></li>
+						<li><a href="#">注册审批</a></li>
+						<li><a href="#">搜索员工</a></li>
+					</ul>
+				</div>
+				<div><div><strong>会议预定</strong></div>
+					<ul>
+						<li><a href="meetingroomadd.html">添加会议室</</a></li>
+						<li><a href="#">查看会议室</a></li>
+						<li><a href="#">预定会议室</a></li>
+						<li><a href="#">查看会议室</a></li>
+					</ul></div>
+			</div>
+			<div class="center1">
+			<div>会议预定&gt;<a href="#">预定会议</a></div>
+			<div>
+				<form>
+					<fieldset>
+						<legend><strong>会议信息</strong></legend>
+						<div class="center1_middle">
+							<table>
+							<tr>
+								<td>会议名称：</td><td><input type="text"></td>
+							</tr><br />
+							<tr>
+								<td>预计参加人数：</td><td><input type="number"></td>
+							</tr><br />
+							<tr>
+								<td>预计开始时间：</td><td><input type="date"><input type="time"></td>
+							</tr><br />
+							<tr>
+								<td>预计结束时间：</td><td><input type="date"><input type="time"></td>
+							</tr><br />
+							<tr>
+								<td>会议室名称：</td><td><select>
+									<option value="0">第一会议室</option>
+									<option value="1">第二会议室</option>
+									<option value="2">第三会议室</option>
+									<option value="3">第四会议室</option>
+								</select></td>
+							</tr><br />
+							<tr>
+								<td>会议说明：</td><td><textarea rows="5" cols="60" placeholder="不超过200字"></textarea></td>
+							</tr><br />
+							<tr>
+                                <td>选择参会人员：</td>
+                                <td>
+                                    <div id="divfrom">
+                                        <select id="selDepartments" onchange="fillEmployees()">
+                                        </select>
+                                        <select id="selEmployees" multiple="true">
+                                        </select>
+                                    </div>
+                                    <div id="divoperator">
+                                        <input type="button" class="clickbutton" value="&gt;" onclick="selectEmployees()"/>
+                                        <input type="button" class="clickbutton" value="&lt;" onclick="deSelectEmployees()"/>
+                                    </div>
+                                    <div id="divto">
+                                        <select id="selSelectedEmployees" multiple="true">
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+							<tr>
+								<td><input type="submit" value="预定会议"></td>
+								<td><input type="reset" value="重置"></td>
+							</tr>
+						</table>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		</div>
+		<div class="hr2"><hr></div>
+		<div class="buttom1">
+			<div class="buttom1_text">更多问题，请联系<a herf="#">管理员</a></div>
+			<div class="buttom1_img"><img src="img/footer.png" width="150px" height="70px" alt="宝宝走丢了~"></div>
+		</div>
+	</body>
+</html>

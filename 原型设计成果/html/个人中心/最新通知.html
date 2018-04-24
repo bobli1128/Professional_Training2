@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>欢迎来访,COOL MEETING会议管理系统！</title>
+		<style>
+		body{
+			background-color: darkslategray;
+			
+		}
+		   
+		   .table1{                            /*边框*/
+				border-collapse: collapse;
+				border: 1px solid red;
+				width: 680px;
+			}
+			.center caption{                  /*标题字*/
+				text-align: left;
+				font-size:15px;
+				font-weight: bold;
+			}
+			.table1 td{
+				border: 1px solid grey;
+				text-align:center;
+			}
+			/*.table1 tr:nth-child(2n){
+				background-color: #ebeaea;
+			}*/
+			.table1 .tr1{
+				background-color:skyblue ;
+			}
+			
+			.table2{                            /*边框*/
+				border-collapse: collapse;
+				border: 1px solid red;
+				width: 680px;
+			}
+            .table2 td{
+				border: 1px solid grey;
+				text-align: center;
+			}
+			/*.table2 tr:nth-child(2n){
+				background-color: #ebeaea;
+			}*/
+			.table2 .tr1{
+				background-color:skyblue ;
+			}
+			/*.clikbutton{
+				border: 1px solid black;
+				padding: 0 8px;
+				text-align: center;
+				color: grey;
+				text-decoration: none;
+			}*/
+		   .div1{
+		   	position:relative;
+		   	height:60px;
+		   	width:900px;
+		   	text-align: center;
+		   	margin-left: 200px; 
+		   	background-color: rgb(169,129,117);
+		   	border-radius: 5px;
+		   	/*padding:10px;*/
+		   }
+		   #div2{
+		   	float:right;
+		   	padding-top: 40px;
+		   }
+		   .div3{
+		   	float:left;
+		   	margin-top: 20px;
+		   	margin-left: 50px;
+		   	padding-top: 10px;
+		   	font-family: "微软雅黑";
+		   	font-size: 20px;
+		   	font-weight: bold;
+		   }
+		   .div4{
+		   	float:left;
+		   	vertical-align: middle;
+		   	padding-left: 0px;
+		   	height:100%;
+		   	width:20%;
+		   }
+		   #div5{
+		   	float:right;
+		   	padding-top: 40px;
+		   }
+		   ul{
+		   	list-style-type:none;
+		   }
+		   a{
+		   	cursor:hand;
+		   	text-decoration: none;
+		   }
+		   a:link{
+		   	color:darkgoldenrod;
+		   }
+		   a:hover{
+		   	color:blue;
+		   }
+		   a:active{
+		   	color:brown;
+		   }
+		   a:visited{
+		   	color:black;
+		   }
+		   .center{
+		   	width:900px;
+		   	height:500px;
+		   	border-radius: 5px;
+		   	background-color: burlywood;
+		   	margin-left: 200px;
+		   	padding-top: 20px;
+		   }
+		   .centerright{
+		   	width:500px;
+		   	height:30px;
+		   	vertical-align: middle;
+		    margin-top: -400px;
+		   	margin-right: 250px;
+		   	margin-bottom:100 px;
+		  	margin-left: 200px;
+		   }
+		   .center_left{
+		   	width:20%;
+		   }
+		   .butom{
+		   vertical-align: middle;
+		   margin-top: 260px;
+		   	margin-left:250px;
+		   }
+		   
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+		 <div class="div4">
+		 	<img src="img/images/footer.png" width="150px" height="60px" alt="cool meeting">
+		 </div>
+		 <div class="div3">
+		 	<font size="5px" face=charcoal>欢迎来访cool_meeting会议管理系统</font>
+		 </div>
+		 <div  id="div2">
+		 	欢迎您，<a href=""><strong>Adim</strong></a>
+		 	&nbsp;<a href="">[修改密码]</a>
+		 </div>
+		</div>
+		<div class="center">
+			<div class="center_left">
+				<div>
+					<div>个人中心</div>
+					<ul>
+						<li><a href="#">最新通知</a></li>
+						<li><a href="#">我的预定</a></li>
+						<li><a href="#">我的会议</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div>
+				<div>
+					<div>人员管理</div>
+					<ul>
+						<li><a href="#">部门管理</a></li>
+						<li><a href="#">员工注册</a></li>
+						<li><a href="#">注册审批</a></li>
+						<li><a href="#">搜索员工</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div>会议管理</div>
+					<ul>
+						<li><a href="#">添加会议室</a></li>
+						<li><a href="#">查看会议室</a></li>
+						<li><a href="#">预定会议</a></li>
+						<li><a href="#">搜索会议</a></li>
+					</ul>
+				</div>
+			</div>
+                <hr>
+		</div>
+		<div class="centerright">
+			<div class="titletop">个人中心&gt;<a herf="#">最新通知</a></div>
+			<br />
+			<table class="table1">
+				<caption>
+					未来七天我要参加的会议
+				</caption>
+				<tr class="tr1">
+					<td>会议名称</td>
+					<td>会议地点</td>
+					<td>开始时间</td>
+					<td>结束时间</td>
+					<td >操作</td>
+				</tr>
+				<tr>
+					<td>三季度</td>
+					<td>第二会议室</td>
+					<td>2017-7-20 14：00</td>
+					<td>2017-7-20 15：00</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+				<tr>
+					<td>技术培训会议</td>
+					<td>大三会议室</td>
+					<td>2017-7-21 14：00</td>
+					<td>2017-7-21 15：00</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+				<tr>
+					<td>员工例行面谈</td>
+					<td>小会议室</td>
+					<td>2017-7-22 14:00</td>
+					<td>2017-7-22 15:00</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+			
+			</table>
+			<br />
+			<table class="table2">
+				<caption>
+					已取消的会议
+				</caption>
+				<tr class="tr1">
+					<td>会议名称</td>
+					<td>会议地点</td>
+					<td>开始时间</td>
+					<td>结束时间</td>
+					<td>取消原因</td>
+					<td>操作</td>
+				</tr>
+				<tr>
+					<td>三季度</td>
+					<td>第二会议室</td>
+					<td>2017-7-20 14：00</td>
+					<td>2017-7-20 15：00</td>
+					<td>人员出差</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+				<tr>
+					<td>技术培训会议</td>
+					<td>大三会议室</td>
+					<td>2017-7-21 14：00</td>
+					<td>2017-7-21 15：00</td>
+					<td>人员出差</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+				<tr>
+					<td>员工例行面谈</td>
+					<td>小会议室</td>
+					<td>2017-7-22 14:00</td>
+					<td>2017-7-22 15:00</td>
+					<td>人员出差</td>
+					<td><a herf="">查看详情</a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="butom">
+			<div style="margin-top: 400px; margin-left: 20px">
+				更多问题，请联系<a href="#">管理员</a></div>
+			<div style="margin-top: -50px; margin-left: 190px"><img src="img/images/footer.png" height="60px" width="120px" alt="ool meeting"></div>
+		</div>
+	</body>
+</html>

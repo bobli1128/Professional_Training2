@@ -1,0 +1,88 @@
+	body{
+				background-color: darkgoldenrod;
+			}
+			.top{
+				position:relative;
+			   	height:80px;
+			   	width:880px;
+			   	margin-left: 200px; 
+			   	background-color: skyblue;
+			   	border-radius: 5px;
+			   	padding:10px;
+			}
+			.top_left{
+				float:left;
+			   	vertical-align: middle;
+			   	padding-left: 0px;
+			   	height:100%;
+			   	width:20%;
+			}
+			.top_middle{
+		   		margin-top: 10px;
+		   		margin-left: -200px;
+		   		padding-top: 10px;
+		   		padding-left: 0px;
+		   		font-family: "微软雅黑";
+		   		font-size: 10px;
+		   		font-weight: bold;
+			}
+			.top_right{
+				float:right;
+		   		margin-top: 18px;
+		   		margin-right: 0px;
+			}
+			ul{
+				list-style-type: none;
+			}
+			a{
+				cursor: pointer;
+				text-decoration: none;
+				}
+			a:link{
+				color:black;
+			}
+			a:hover{
+				color:red;
+			}
+			}
+			a:active{
+				color:brown;
+			}
+			a:visited{
+				color: red;}
+			.center{
+				padding-top: 20px;
+				width:900px;
+				height:400px;
+				background-color: rosybrown;
+				margin-left: 200px;}
+			.center_left{
+				float:left;
+				width:20%;
+			}
+			.center_right{
+				padding-top: 100px;
+				padding-left: 100px;
+			   	margin-left: 250px;
+			   	margin-bottom:100px;
+				}
+			.buttom{
+				background-color: rosybrown;
+				height:100px;
+				width: 900px;
+				margin-left: 200px;
+			}
+			.buttom_text{
+				margin-left: 280px;
+				padding-top: 40px;
+			}
+			.buttom_img{
+				margin-left: 450px;
+				margin-top: -50px;
+			}
+			.hr1{
+				width: 900px;
+				margin-left: 200px;
+				margin-top: -10px;
+				margin-bottom: -7px;
+			}
